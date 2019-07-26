@@ -15,13 +15,14 @@ classdef IR_sensor
     
     methods 
         
-        function obj = buildSensor(obj, x, y, theta)
+        function obj = buildSensor(obj, x, y, theta, a, b)
            
-            RendX = x + 0.5*cos(theta - pi/3);  
-            RendY = y + 0.5*sin(theta - pi/3); 
+
+            RendX = x + a*cos(theta - pi/b);  
+            RendY = y + a*sin(theta - pi/b); 
         
-            LendX = x + 0.5*cos(theta + pi/3);
-            LendY = y + 0.5*sin(theta + pi/3);
+            LendX = x + a*cos(theta + pi/b);
+            LendY = y + a*sin(theta + pi/b);
             
             obj.sensor_xarr = [LendX RendX];
             obj.sensor_yarr = [LendY RendY];

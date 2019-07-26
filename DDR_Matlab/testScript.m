@@ -2,7 +2,9 @@
 clear;clc;close all;
 
 line = followMe;
-line = line.buildSine();
+% line = line.buildSine();
+line = line.buildCircle();
+% line = line.buildLine();
 
 % Set up Robot 
 robot = DDR; 
@@ -12,12 +14,14 @@ robot.L = 5;
 robot.x = 0;
 robot.y = -5;
 robot.phi = 0;
-robot.theta = 90*pi/180;
+robot.theta = 100*pi/180;
 robot.dt = 0.02;
 
 %Set up Sensor
+a = 0.5;
+b = 3; % controls how for out the sensor is
 sensor = IR_sensor;
-sensor = sensor.buildSensor(robot.x, robot.y, robot.theta);
+sensor = sensor.buildSensor(robot.x, robot.y, robot.theta, a, b);
 
 % Set up Controller
 control = Controller;
@@ -30,7 +34,7 @@ figure;
 while isempty(sensor.Q) == true
   
     robot = robot.searchPATalpha()
-    sensor = sensor.buildSensor(robot.x, robot.y, robot.theta);
+    sensor = sensor.buildSensor(robot.x, robot.y, robot.theta, a, b);
     sensor = sensor.readBar( line.Linex, line.Liney)
     
     n = scatter(robot.x,robot.y, 300,'m');
@@ -61,10 +65,10 @@ while i > 0
     robot.vLs = [robot.vLs, robot.vL];
     robot = robot.DDR_Kinematics();
      
-    sensor = sensor.buildSensor(robot.x, robot.y, robot.theta);
+    sensor = sensor.buildSensor(robot.x, robot.y, robot.theta, a, b);
     sensor = sensor.readBar( line.Linex, line.Liney);
     
-    n = scatter(robot.x, robot.y, 100,'m');
+    n = scatter(robot.x, robot.y, 250,'m');
     q = plot(sensor.bar(1,:) , sensor.bar(2,:));
     
     xlim([(robot.x)-3, (robot.x)+3]);

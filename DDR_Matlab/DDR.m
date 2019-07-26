@@ -7,8 +7,8 @@ classdef DDR
         r       % DDR wheel radius (in)
         L        % DDR axle lenght  (in)
         
-        x             % x-coordinated of center axel of DDR
-        y             % y-coordinated of center axel of DDR
+        x             % x-coordinate of center axel of DDR
+        y             % y-coordinate of center axel of DDR
         LastX = []
         LastY = []
         
