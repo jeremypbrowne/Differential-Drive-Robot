@@ -1,6 +1,0 @@
-from Drone import Drone
-import numpy
-
-
-
-robot = Drone(x=0, y=0, radius=0, length=0, base_speed=0, theta=0, phi=0, dt=0)
