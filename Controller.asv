@@ -119,11 +119,10 @@ classdef Controller
                 plot(1:1:length(obj.Ds),obj.Ds); grid on;     
                 ylabel('D');
                 xlabel('Simulation Step');
-                title('Auto-Tuned values of P, I, and D')
+                title('Error of path line to position on sensro bar')
 
         end  
         
-        % Ziegler Nichols based controller gains Auto-Tune
         function obj = autoTune(obj)
             % P
             if obj.type == 1

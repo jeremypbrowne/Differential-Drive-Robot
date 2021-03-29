@@ -1,6 +1,6 @@
-classdef followMe
-    %UNTITLED Summary of this class goes here
-    %   Detailed explanation goes here
+classdef GeneratePath
+    % Generate paths for DDR project
+    % Path Options: Sine Wave, Circle, Straight Line
     
     properties
         

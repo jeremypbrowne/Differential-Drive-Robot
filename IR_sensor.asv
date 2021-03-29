@@ -3,8 +3,7 @@ classdef IR_sensor
     % Defines the size and shape of the simulated IR sensor
     % Note: The sensor is treated as a continous sensor bar
     % Uses the InterX function to determine if the sensor bar overlaps 
-    % with the target path and returns the position of the intersection 
-    % from the bar center 
+    % with the target path and returns the position of the 
     
     properties          
         bar     % revisit this to match the number of sensor on the bar

@@ -1,6 +1,6 @@
 classdef DDR
     % Differential Drive Robot (DDR) Class
-    % Defines the robot paramters and kinematics
+    % Defines the robot paramters a
     
     properties
         
@@ -57,16 +57,16 @@ classdef DDR
             obj.vs = [obj.vs, obj.Vtot];
         end 
         
-        % Attempt at making a search patter and locate the path to follow
         function obj = searchPATalpha(obj)
-            obj.vr = obj.baseSpd;
-            obj.vL = obj.baseSpd;
             
+            obj.vr = obj.baseSpd;
             obj.vrs = [obj.vrs, obj.vr];
+            obj.vL = obj.baseSpd;
             obj.vLs = [obj.vLs, obj.vL];
 
             obj = obj.DDR_Kinematics();
-
+            
+            
 %             if i == 50
 %                 obj.vr = 0;
 %                 obj.vL = 0;
@@ -80,9 +80,8 @@ classdef DDR
         function obj = plots(obj)
             figure
             plot(1:1:length(obj.vs),obj.vs, 1:1:length(obj.vrs),obj.vrs, 1:1:length(obj.vLs),obj.vLs); grid on;
-            legned('DDR Avg Velocity', 'Right Wheel Velocity', 'Left Wheel Velocity')
-            ylabel('Velocity (m/s)');
-            xlabel('Simulation Step');
+            ylabel('Velocity');
+            xlabel('Time (sec)');
         
         end   
         
